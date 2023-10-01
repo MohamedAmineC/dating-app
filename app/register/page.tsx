@@ -5,7 +5,7 @@ import Button from "../components/Button";
 import { FieldValues,useForm,FormSubmitHandler, SubmitHandler, FieldErrors} from "react-hook-form"
 import Input from "../components/Input";
 import { useState } from "react";
-import { ClipLoader } from "react-spinners";
+import { ClockLoader } from "react-spinners";
 
 const Page = () => {
     const router = useRouter();
@@ -136,7 +136,7 @@ const Page = () => {
             </div>
             <div className="flex flex-col gap-4">
                 <Button 
-                actionLabel={loading ? <ClipLoader color="#E44949" size={24} /> : 'Créer un compte'}
+                actionLabel={loading ? <ClockLoader color="#E44949" size={24} /> : 'Créer un compte'}
                 outline
                 type="submit"
                 disabled={loading}
