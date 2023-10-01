@@ -25,12 +25,12 @@ export default function Home() {
           />
         </div>
         <div className="w-full flex items-center justify-between">
-          <div className="w-10 h-10 rounded-full grid place-items-center text-red-500">
+          <div className="w-10 h-10 rounded-full grid place-items-center text-red-500 cursor-pointer">
             <MdCancel 
             size={50}
             />
           </div>
-          <div className="w-10 h-10 rounded-full grid place-items-center text-green-700">
+          <div className="w-10 h-10 rounded-full grid place-items-center text-green-700 cursor-pointer">
             <AiFillCheckCircle 
             size={50}
             />

@@ -75,7 +75,7 @@ const Page = () => {
                 />
                 <div className="font-semibold text-neutral-800">
                     <p>Vous n&apos;avez pas de compte ? </p>
-                    <span className="font-medium text-neutral-200 cursor-pointer"
+                    <span className="font-medium text-neutral-200 cursor-pointer mt-4"
                     onClick={() => router.push('/register')}>
                         Créer un compte
                     </span>

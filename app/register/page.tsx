@@ -143,7 +143,7 @@ const Page = () => {
                 />
                 <div className="font-semibold text-neutral-800">
                     <p>Vous avez déja un compte ? </p>
-                    <span className="font-medium text-neutral-200 cursor-pointer"
+                    <span className="font-medium text-neutral-200 cursor-pointer mt-4"
                     onClick={() => router.push('/signin')}>
                         Connectez-vous !
                     </span>
