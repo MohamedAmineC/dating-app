@@ -31,7 +31,6 @@ const Page = () => {
     const [erros,setErrors] = useState<FieldErrors>(errors)
 
     const onSubmit:SubmitHandler<FieldValues> = (data) => {
-        console.log(data);
         setLoading(true);
         if(data.password !== data.password_verif){
             setTimeout(() => {
@@ -151,7 +150,7 @@ const Page = () => {
             </div>
         </form>
         <div className="absolute self-end mb-4 text-white">
-            © 2023 MeetUp. All rights reserved.
+            © 2023 <span className="font-semibold">Meet</span><span className="text-black font-semibold">Up</span> . All rights reserved.
         </div>
     </div>
   )

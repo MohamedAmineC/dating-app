@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import {UseFormRegister,FieldValues,FieldErrors} from "react-hook-form"
-import { FaEye } from "react-icons/fa"
+import { FaEye, FaEyeSlash } from "react-icons/fa"
 
 interface InputProps{
     id:string,
@@ -29,12 +29,17 @@ const Input:React.FC<InputProps> = ({
     }
   return (
     <div className="w-full relative">
-        { showPassword && hasValue && (
+        { showPassword && hasValue && ( passwordVisible ? (
             <FaEye size={24}
             className="text-primarry absolute top-5 right-2 cursor-pointer"
-            onClick={toggleVisibility}
+            onClick={() => setPasswordVisible(false)}
             />
-        )}
+            ) : (
+            <FaEyeSlash size={24}
+            className="text-primarry absolute top-5 right-2 cursor-pointer"
+            onClick={() => setPasswordVisible(true)}
+            />
+        ))}
         {checkbox ? (
             <div className="flex items-center gap-4">
             <input 
