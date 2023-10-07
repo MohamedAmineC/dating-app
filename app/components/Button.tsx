@@ -1,6 +1,6 @@
 "use client"
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     primary?: boolean,
     outline?: boolean,
     actionLabel: React.ReactNode,

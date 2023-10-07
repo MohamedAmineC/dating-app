@@ -5,18 +5,22 @@ import { useState } from "react"
 import { AiOutlineDown } from "react-icons/ai"
 import Select from "react-select"
 import { FilterOptionInterface } from "../page"
+import makeAnimated from "react-select/animated"
 
 
 interface FilterOptionProps {
     label: string,
     value?: FilterOptionInterface[],
+    placeholder?: string,
     disabled?: boolean,
     onChange?: (value: any) => void,
     options?: FilterOptionInterface[],
     children?: React.ReactNode
 }
 
-const FilterOption = ({label,value,onChange,disabled,options,children}:FilterOptionProps) => {
+const animatedComponents = makeAnimated();
+
+const FilterOption = ({label,value,onChange,disabled,options,children,placeholder}:FilterOptionProps) => {
     const [isOpen,setIsOpen] = useState(false)
     return (
         <div className="flex flex-col gap-2 pb-2">
@@ -33,18 +37,22 @@ const FilterOption = ({label,value,onChange,disabled,options,children}:FilterOpt
             )}
             {isOpen && !children && (
                 <Select 
-                placeholder="Select your age preferences"
+                placeholder={placeholder}
                 value={value}
+                components={animatedComponents}
                 isMulti
                 isClearable
                 isDisabled={disabled}
                 isLoading={disabled}
                 options={options}
                 onChange={(option) => onChange?.(option)}
+                formatOptionLabel={(option) => (
+                    <div className="text-neutral-700">
+                        {option.label}
+                    </div>
+                )}
                 classNames={{
                     control: () => 'p-3 border-2',
-                    input: () => 'text-lg',
-                    option: () => 'text-lg text-white',
                     clearIndicator: () => 'text-lg cursor-pointer',
                     dropdownIndicator: () => 'text-lg cursor-pointer',
                     multiValueLabel: () => 'text-lg font-semibold rounded-full',

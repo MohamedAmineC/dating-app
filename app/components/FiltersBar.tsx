@@ -1,7 +1,11 @@
+"use client"
+
 import React, { useState } from 'react'
 import { FieldValues, SubmitHandler, UseFormHandleSubmit } from 'react-hook-form'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { RxCross2 } from 'react-icons/rx'
+import Button from './Button'
+import { useRouter } from 'next/navigation'
 
 interface FiltersBarProps {
   children: React.ReactNode,
@@ -11,6 +15,7 @@ interface FiltersBarProps {
 
 const FiltersBar = ({children,onSubmit,handleSubmit}: FiltersBarProps) => {
     const [filtersOpen,setFiltersOpen] = useState(false)
+    const router = useRouter();
   return (
     <div className="flex flex-col gap-4 w-full bg-primarry text-white rounded-xl p-4">
           <div className="w-full flex items-center justify-between">
@@ -32,11 +37,24 @@ const FiltersBar = ({children,onSubmit,handleSubmit}: FiltersBarProps) => {
           </div>
           {filtersOpen &&  (
             <form className='flex flex-col'
-            onSubmit={() => {
-                handleSubmit(onSubmit)
-                setFiltersOpen(false)
-            }}>
+            onSubmit={handleSubmit(onSubmit)}>
                 {children}
+                <div className="flex items-center gap-4 justify-end">
+                  <Button 
+                  type="reset"
+                  actionLabel="Reset"
+                  primary
+                  onAction={() => {
+                    router.push('/')
+                    setFiltersOpen(false)
+                  }}
+                  />
+                  <Button 
+                  type="submit"
+                  actionLabel="Apply"
+                  outline
+                  />
+                </div>
             </form>
           )}
     </div>

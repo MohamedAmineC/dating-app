@@ -1,0 +1,15 @@
+.Gallery{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+.Gallery::-webkit-scrollbar{
+    display: none;
+}
+.GalleryItem {
+    scroll-snap-align: center;
+    min-width: 75%;
+    position: relative;
+}
