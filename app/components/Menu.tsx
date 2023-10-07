@@ -11,7 +11,7 @@ const Menu = () => {
     const router = useRouter();
     const pathname = usePathname();
   return (
-    <div className="w-full md:w-[40rem] md:mb-4 md:rounded-lg md:bg-primarry md:text-white  py-4 flex items-center justify-between absolute bottom-0 text-primarry border-t-2 border-primarry">
+    <div className="w-full md:w-[40rem] md:mb-10 md:rounded-lg md:bg-primarry md:text-white  py-4 flex items-center justify-between fixed bottom-0 text-primarry border-t-2 border-primarry">
        <MenuIcon 
        icon={AiOutlineHome}
         onClick={() => router.push('/')}
