@@ -13,6 +13,7 @@ import qs from "query-string";
 import Button from "./components/Button";
 import ControlButtons from "./components/ControlButtons";
 import ImagesCarrousel from "./components/ImagesCarrousel";
+import { agePreferences, genderPreferences, persons } from "./data";
 
 export interface FilterOptionInterface {
   value: string,
@@ -44,20 +45,7 @@ export default function Home() {
       shouldValidate:true
     })
   }
-  const agePreferences: FilterOptionInterface[] = [{ value: '18-25', label: '18-25' },
-  { value: '25-35', label: '25-35' },
-  { value: '35-45', label: '35-45' },
-  { value: '45-55', label: '45-55' },
-  { value: '55-65', label: '55-65' },
-  { value: '65+', label: '65+' }
-  ];
-
-  const genderPreferences: FilterOptionInterface[] = [  { value: 'male', label: 'Male' },
-  { value: 'female', label: 'Female' },
-  { value: 'non-binary', label: 'Non-binary' },
-  { value: 'transgender', label: 'Transgender' },
-  { value: 'other', label: 'Other' }];
-
+  
   const age = watch('age')
   const genre = watch('genre')
   const country = watch('country')
@@ -132,7 +120,9 @@ export default function Home() {
                   />
           </FilterOption>
         </FiltersBar>
-        <ImagesCarrousel />
+        <ImagesCarrousel 
+        persons={persons}
+        />
         <ControlButtons />
       </div>
     </div>
