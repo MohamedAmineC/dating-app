@@ -14,6 +14,8 @@ import Button from "./components/Button";
 import ControlButtons from "./components/ControlButtons";
 import ImagesCarrousel from "./components/ImagesCarrousel";
 import { agePreferences, genderPreferences, persons } from "./data";
+import { useEffect, useState } from "react";
+import HomeModal from "./components/HomeModal";
 
 export interface FilterOptionInterface {
   value: string,
@@ -23,6 +25,8 @@ export interface FilterOptionInterface {
 export default function Home() {
   const router = useRouter();
   const params = useSearchParams();
+  const [isLogged,setIsLogged] = useState(false)
+  const [isLoading,setIsLoading] = useState(false)
   const {
     handleSubmit,
     setValue,
@@ -74,6 +78,19 @@ export default function Home() {
     reset()
     router.push(url)
   }
+  const onContinue = () => {
+    setIsLoading(true)
+    setTimeout(() => {
+      setIsLoading(false)
+      setIsLogged(true)
+    },5000)
+  }
+  if(!isLogged) return (
+    <HomeModal
+    onSubmit={onContinue}
+    loading={isLoading}
+    />
+  )
   return (
     <div className='h-full w-full flex justify-center'>
       <Menu />
