@@ -97,7 +97,7 @@ const Page = () => {
             </div>
         </form>
         <div className="absolute self-end mb-4 text-white">
-            © 2023 MeetUp. All rights reserved.
+            © 2023 Meet<span className="text-black">Up</span>. All rights reserved.
         </div>
     </div>
   )
