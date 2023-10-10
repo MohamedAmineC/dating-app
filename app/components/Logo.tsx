@@ -15,7 +15,7 @@ const Logo = ({loading,primary}:LogoProps) => {
     height={primary ? 500 : 200}
     className={`rounded-full ${loading && 'animate-bounce'}
     `}
-    objectFit='cover'
+    style={{objectFit: 'cover'}}
 
     />
   )

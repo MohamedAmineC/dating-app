@@ -16,6 +16,7 @@ import ImagesCarrousel from "./components/ImagesCarrousel";
 import { agePreferences, genderPreferences, persons } from "./data";
 import { useEffect, useState } from "react";
 import HomeModal from "./components/HomeModal";
+import useHomeModal from "./hooks/useHomeModal";
 
 export interface FilterOptionInterface {
   value: string,
@@ -27,6 +28,7 @@ export default function Home() {
   const params = useSearchParams();
   const [isLogged,setIsLogged] = useState(false)
   const [isLoading,setIsLoading] = useState(false)
+  const homeModal = useHomeModal()
   const {
     handleSubmit,
     setValue,
@@ -86,10 +88,17 @@ export default function Home() {
     },5000)
   }
   if(!isLogged) return (
+    <div className="w-full h-full grid place-items-center">
+      <Button 
+      actionLabel="Open Modal"
+      onAction={homeModal.onOpen}
+      primary
+      />
     <HomeModal
     onSubmit={onContinue}
     loading={isLoading}
     />
+    </div>
   )
   return (
     <div className='h-full w-full flex justify-center'>
