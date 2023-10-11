@@ -15,12 +15,13 @@ interface FilterOptionProps {
     disabled?: boolean,
     onChange?: (value: any) => void,
     options?: FilterOptionInterface[],
-    children?: React.ReactNode
+    children?: React.ReactNode,
+    className?: string,
 }
 
 const animatedComponents = makeAnimated();
 
-const FilterOption = ({label,value,onChange,disabled,options,children,placeholder}:FilterOptionProps) => {
+const FilterOption = ({label,value,onChange,disabled,options,children,placeholder,className}:FilterOptionProps) => {
     const [isOpen,setIsOpen] = useState(false)
     return (
         <div className="flex flex-col gap-2 pb-2">
@@ -31,7 +32,7 @@ const FilterOption = ({label,value,onChange,disabled,options,children,placeholde
                 />
             </div>
             {isOpen && children && (
-                <div className="flex items-center gap-2">
+                <div className={`flex items-center gap-2 ${className}`}>
                     {children}
                 </div>
             )}

@@ -90,7 +90,7 @@ export default function Home() {
   if(!isLogged) return (
     <div className="w-full h-full grid place-items-center">
       <Button 
-      actionLabel="Open Modal"
+      actionLabel="Click here to continue"
       onAction={homeModal.onOpen}
       primary
       />
@@ -101,9 +101,9 @@ export default function Home() {
     </div>
   )
   return (
-    <div className='h-full w-full flex justify-center'>
+    <div className='min-h-screen w-full flex justify-center overflow-y-scroll'>
       <Menu />
-      <div className="w-full md:w-[40rem] flex flex-col items-center py-8 gap-8 px-4 md:px-0 md:mb-20">
+      <div className="w-full md:w-[40rem] flex flex-col items-center py-8 gap-8 px-4 md:px-0 mb-20 md:mb-28">
         <FiltersBar 
         handleSubmit={handleSubmit}
         onSubmit={onSubmit}>
@@ -121,7 +121,7 @@ export default function Home() {
           options={genderPreferences}
           onChange={(value) => setCustomValue('genre',value)}
           />
-          <FilterOption label="Location">
+          <FilterOption label="Location" className="flex-wrap">
                   <CountrySelect 
                   country={country}
                   onChange={(value) => {
