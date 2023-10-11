@@ -56,7 +56,7 @@ const Page = () => {
     }
   return (
 
-    <div className="h-full w-full grid place-items-center bg-primarry relative">
+    <div className="w-full grid place-items-center pt-10 gap-4 bg-primarry relative">
         <form className="flex flex-col gap-8 items-center"
         onSubmit={handleSubmit(onSubmit)}
         >
@@ -149,7 +149,7 @@ const Page = () => {
                 </div>
             </div>
         </form>
-        <div className="absolute self-end mb-4 text-white">
+        <div className="self-end p-4 text-white">
             © 2023 <span className="font-semibold">Meet</span><span className="text-black font-semibold">Up</span> . All rights reserved.
         </div>
     </div>
